@@ -1,0 +1,61 @@
+.section-tabs {
+    $root: &;
+    display: flex;
+    flex-direction: column;
+    @include morphism();
+    padding: 1.875rem 1rem;
+    margin: 0 auto 40px;
+
+    @include media-breakpoint-up(xxl) {
+        padding: 4.375rem 5rem;
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 1.875rem;
+        z-index: 1;
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+            margin-bottom: 5rem;
+        }
+
+        &-item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include font(14, 18);
+            text-transform: uppercase;
+            @include morphism(10rem);
+            padding: 0.875rem 2rem;
+            margin-right: 0;
+            margin-bottom: 1rem;
+            transition: all .3s;
+            cursor: pointer;
+
+            &:hover {
+                @include morphism-active();
+            }
+
+            @include media-breakpoint-up(lg) {
+                width: auto;
+                padding: 1.125rem 5rem;
+                margin-right: 1.875rem;
+                margin-bottom: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+                margin-bottom: 0;
+            }
+
+            &.active {
+                @include morphism-active();
+            }
+        }
+    }
+}

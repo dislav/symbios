@@ -1,0 +1,62 @@
+mixin trade-form(props)
+    form.trade-form&attributes(attributes)
+        .trade-form__head
+            .trade-form__head-group
+                .trade-form__head-group-title Отдаете
+                .trade-form__head-group-data
+                    +input({
+                        name: 'give'
+                    }).trade-form__head-group-data-input
+                    +select({
+                        options: [
+                            { value: 0, icon: 'sber' },
+                            { value: 1, icon: 'bitcoin' },
+                            { value: 2, icon: 'etherium' },
+                            { value: 3, icon: 'payeer' },
+                            { value: 4, icon: 'symbios' },
+                            { value: 5, icon: 'usdt' }
+                        ]
+                    }).trade-form__head-group-data-select
+            .trade-form__head-switch
+                +svg('switch')
+            .trade-form__head-group
+                .trade-form__head-group-title Получаете
+                .trade-form__head-group-data
+                    +input({
+                        name: 'get'
+                    }).trade-form__head-group-data-input
+                    +select({
+                        options: [
+                            { value: 0, icon: 'sber' },
+                            { value: 1, icon: 'bitcoin' },
+                            { value: 2, icon: 'etherium' },
+                            { value: 3, icon: 'payeer' },
+                            { value: 4, icon: 'symbios' },
+                            { value: 5, icon: 'usdt' }
+                        ]
+                    }).trade-form__head-group-data-select
+        .trade-form__main
+            +input({
+                name: 'give',
+                placeholder: 'Ваш номер телефона'
+            }).trade-form__main-input
+            +input({
+                name: 'give',
+                placeholder: 'Ваш RU-ID'
+            }).trade-form__main-input
+            +input({
+                name: 'give',
+                placeholder: '@username Telegram'
+            }).trade-form__main-input
+            +input({
+                name: 'give',
+                placeholder: 'Введите ваши ФИО полностью'
+            }).trade-form__main-input
+            +input({
+                name: 'give',
+                placeholder: 'Номер карты отправителя'
+            }).trade-form__main-input
+            .trade-form__main-button
+                button Обменять
+                    +svg('arrow-2')
+

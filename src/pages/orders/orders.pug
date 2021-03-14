@@ -1,0 +1,76 @@
+extends ../../app/pug/layout
+
+block title
+    | Заявки
+
+block content
+    +section-tabs({
+        tabs: [
+            { active: true, title: 'Заявки на покупку' },
+            { title: 'Заявки на продажу' }
+        ]
+    })
+        +orders-list({
+            rows: [
+                {
+                    columns: [
+                        'BTC',
+                        '0.342353 BTC',
+                        '@username',
+                        '+7 999 888 7756',
+                        'RU-ID',
+                        'Иванов Иван Иванович'
+                    ]
+                },
+                {
+                    columns: [
+                        'Сбер банк',
+                        '0.342353 BTC',
+                        '@username',
+                        '+7 999 888 7756',
+                        'RU-ID',
+                        'Иванов Иван Иванович'
+                    ]
+                },
+                {
+                    columns: [
+                        'ETH',
+                        '0.342353 BTC',
+                        '@username',
+                        '+7 999 888 7756',
+                        'RU-ID',
+                        'Иванов Иван Иванович'
+                    ]
+                },
+                {
+                    columns: [
+                        'BTC',
+                        '0.342353 BTC',
+                        '@username',
+                        '+7 999 888 7756',
+                        'RU-ID',
+                        'Иванов Иван Иванович'
+                    ]
+                },
+                {
+                    columns: [
+                        'BTC',
+                        '0.342353 BTC',
+                        '@username',
+                        '+7 999 888 7756',
+                        'RU-ID',
+                        'Иванов Иван Иванович'
+                    ]
+                },
+                {
+                    columns: [
+                        'ETH',
+                        '0.342353 BTC',
+                        '@username',
+                        '+7 999 888 7756',
+                        'RU-ID',
+                        'Иванов Иван Иванович'
+                    ]
+                }
+            ]
+        })

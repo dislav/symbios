@@ -1,0 +1,112 @@
+$breakponts: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+    fhd: 1760px,
+);
+
+@mixin media-breakpoint-up($name) {
+    @each $breakpoint-name, $resolution in $breakponts {
+        @if $name == $breakpoint-name {
+            @media (min-width: $resolution) {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin offset($mobile: 16, $desktop: 320, $property: "padding") {
+    #{$property}-left: #{$mobile}px;
+    #{$property}-right: #{$mobile}px;
+
+    @include media-breakpoint-up(md) {
+        #{$property}-left: #{($mobile + $desktop) / 6}px;
+        #{$property}-right: #{($mobile + $desktop) / 6}px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        #{$property}-left: #{($mobile + $desktop) / 4}px;
+        #{$property}-right: #{($mobile + $desktop) / 4}px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        #{$property}-left: #{$desktop / 4 / 1920 * 100}vw;
+        #{$property}-right: #{$desktop / 4 / 1920 * 100}vw;
+    }
+
+    @include media-breakpoint-up(fhd) {
+        max-width: 1200px;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@mixin font($min-size, $max-size) {
+    font-size: #{$min-size}px;
+
+    @include media-breakpoint-up(md) {
+        font-size: #{($min-size + $max-size) / 1.5}px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        font-size: #{($min-size + $max-size) / 2.35}px;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        font-size: #{$max-size}px;
+    }
+}
+
+@mixin morphism(
+    $radius: $border-radius,
+    $rotate: 176deg,
+    $color-from: $border1,
+    $color-to: $border2,
+    $border: true
+) {
+    position: relative;
+    border-radius: $radius;
+    background-color: $color1;
+    box-shadow: -6px -8px 15px rgba($shadow1, 0.16), 8px 8px 26px 1px $shadow2;
+
+    @if $border == true {
+        &:before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            bottom: -2px;
+            right: -2px;
+            border-radius: $radius;
+            background: linear-gradient($rotate, $color-from, $color-to);
+            z-index: -1;
+        }
+    }
+}
+
+@mixin morphism-active(
+    $radius: 10rem,
+    $rotate: 176deg,
+    $color-from: $shadow3,
+    $color-to: $shadow4
+) {
+    position: relative;
+    border-radius: $radius;
+    background-color: $color2;
+    box-shadow: inset 4px 4px 16px $shadow2;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        bottom: -2px;
+        right: -2px;
+        border-radius: $radius;
+        background: linear-gradient($rotate, rgba($color-from, .4), rgba($color-to, .6));
+        z-index: -1;
+    }
+}

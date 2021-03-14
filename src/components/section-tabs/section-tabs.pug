@@ -1,0 +1,6 @@
+mixin section-tabs(props)
+    .section-tabs&attributes(attributes)
+        .section-tabs__buttons
+            each tab in props.tabs
+                .section-tabs__buttons-item(class= tab.active ? 'active' : '')= tab.title
+        block

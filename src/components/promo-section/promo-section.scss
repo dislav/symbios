@@ -1,0 +1,63 @@
+.promo-section {
+    $root: &;
+    position: relative;
+    @include morphism();
+    background: linear-gradient(to right, #16192E, #1A8FE3);
+    padding: 0.875rem 1rem;
+
+    @include media-breakpoint-up(lg) {
+        padding: 2rem 5rem;
+    }
+
+    img {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }
+    }
+
+    &__content {
+        h2 {
+            text-align: center;
+            @include font(24, 40);
+            text-transform: uppercase;
+            margin: 1rem 0;
+
+            @include media-breakpoint-up(lg) {
+                text-align: inherit;
+                margin: 2rem 0;
+            }
+        }
+    
+        a {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include font(18, 18);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1;
+            @include morphism(10rem);
+            box-shadow: -6px -8px 15px #134674, 8px 8px 26px 1px #11111F;
+            padding: 1rem 2.875rem;
+            transition: all .3s;
+
+            @include media-breakpoint-up(lg) {
+                width: auto;
+                display: inline-flex;
+            }
+
+            &:hover {
+                @include morphism-active();
+            }
+        }
+    }
+}

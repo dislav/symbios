@@ -1,0 +1,8 @@
+mixin select(props)
+    .select&attributes(attributes)
+        select(name= props.name).select__choices
+            each option in props.options
+                option(value= option.value)
+                    +svg(option.icon)
+                    span= option.icon
+        +svg('arrow')

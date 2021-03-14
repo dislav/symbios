@@ -1,0 +1,121 @@
+.select {
+    position: relative;
+
+    > svg {
+        position: absolute;
+        top: 50%;
+        right: 18px;
+        width: 14px;
+        height: 14px;
+        // fill: $color3;
+        transform: translateY(-50%);
+        transition: transform .3s;
+        z-index: 15;
+    }
+
+    &.show {
+        > svg {
+            transform: translateY(-50%) rotate(-180deg);
+        }
+    }
+}
+
+.choices {
+    $root: &;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+
+    &__inner {
+        @include morphism(10rem, $border: false);
+        padding: 14px 100px 14px 28px;
+        z-index: 11;
+
+        select {
+            outline: none;
+
+            &:hover,
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    &__list {
+        position: relative;
+
+        &--single {
+            #{$root}__item {
+                width: 100px;
+                padding-right: 10px;
+            }
+        }
+
+        &--dropdown {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            max-height: 180px;
+            border-radius: 0 0 20px 20px;
+            background-color: $color1;
+            opacity: 0;
+            visibility: hidden;
+            overflow-y: scroll;
+            padding-top: 20px;
+            transition: opacity .3s, visibility .3s;
+            box-shadow: -6px -8px 15px rgba($shadow1, 0.16), 8px 8px 26px 1px $shadow2;
+            z-index: 10;
+
+            @include media-breakpoint-up(xl) {
+                max-height: 320px;
+                overflow: auto;
+            }
+
+            &.is-active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        svg {
+            // width: 100px;
+            // height: 20px;
+            pointer-events: none;
+        }
+
+        &--choice {
+            padding: 14px 28px;
+            transition: background-color .3s;
+
+            &:hover {
+                background-color: $color3;
+            }
+    
+            &:last-child {
+                border-radius: 0 0 20px 20px;
+            }
+        }
+    }
+
+    &.is-focused {
+
+    }
+
+    &.is-open {
+        .choices__inner {
+            box-shadow: -6px -8px 15px rgba($shadow1, 0.16);
+        }
+    }
+}

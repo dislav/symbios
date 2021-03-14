@@ -1,0 +1,14 @@
+mixin orders-list(props)
+    .orders-list&attributes(attributes)
+        each row, index in props.rows
+            .orders-list__row
+                .orders-list__row-col= `#${index+1}`
+                each column in row.columns
+                    .orders-list__row-col= column
+                .orders-list__row-col.buttons
+                    .orders-list__row-col-button
+                        +svg('cancel')
+                        span Отклонить
+                    .orders-list__row-col-button
+                        +svg('accept')
+                        span Принять

@@ -1,0 +1,191 @@
+.trade-form {
+    $root: &;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &__head {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 1.875rem;
+        z-index: 2;
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            margin-bottom: 4.75rem;
+        }
+
+        &-switch {
+            @include morphism(10rem);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.75rem;
+            height: 3.75rem;
+            transform: translate(-50%, -54%);
+            cursor: pointer;
+            z-index: 8;
+
+            svg {
+                width: 50%;
+                height: 50%;
+                will-change: transform;
+                transform: rotate(0);
+                transition: transform .3s;
+            }
+
+            &:hover {
+                svg {
+                    transform: rotate(-180deg);
+                    transition: transform .3s;
+                }
+            }
+        }
+
+        &-group {
+            position: relative;
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            @include morphism();
+
+            @include media-breakpoint-up(lg) {
+                width: 48.5%;
+            }
+
+            &:first-child {
+                padding: 1.125rem 1.5rem 2rem;
+                margin-bottom: 1.125rem;
+
+                @include media-breakpoint-up(md) {
+                    padding: 2rem 1.5rem;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    padding: 1.25rem 2rem;
+                    margin-bottom: 0;
+                }
+            }
+
+            &:last-child {
+                padding: 2rem 1.5rem 1.125rem;
+
+                @include media-breakpoint-up(md) {
+                    padding: 2rem 1.5rem;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    padding: 1.25rem 2rem;
+                    margin-bottom: 0;
+                }
+            }
+
+            &-title {
+                @include font(14, 18);
+                text-transform: uppercase;
+                line-height: 1.2;
+                margin: 0 0 1rem;
+
+                @include media-breakpoint-up(lg) {
+                    margin: 0 1rem 1rem;
+                }
+            }
+
+            &-data {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: column-reverse;
+
+                @include media-breakpoint-up(lg) {
+                    flex-direction: row;
+                }
+
+                &-input {
+                    width: 100%;
+
+                    @include media-breakpoint-up(lg) {
+                        width: 60%;
+                    }
+                }
+
+                &-select {
+                    width: 100%;
+                    margin-bottom: 1rem;
+
+                    @include media-breakpoint-up(lg) {
+                        width: 38%;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            &-desktop {
+                display: none;
+
+                @include media-breakpoint-up(lg) {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        &-input, &-button {
+            width: 100%;
+            margin-bottom: 1.25rem;
+
+            @include media-breakpoint-up(lg) {
+                width: 45.5%;
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        &-button button {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            @include font(18, 16);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1;
+            border-radius: 10rem;
+            background-color: $color4;
+            box-shadow: -6px -6px 16px rgba(98, 93, 58, 0.46), 10px 10px 16px #0F1021;
+            padding: 1rem 1.25rem 0.875rem;
+            cursor: pointer;
+
+            @include media-breakpoint-up(lg) {
+                width: auto;
+            }
+
+            svg {
+                width: 8px;
+                height: 12px;
+                margin-left: 1rem;
+            }
+        }
+    }
+}

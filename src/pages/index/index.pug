@@ -1,0 +1,14 @@
+extends ../../app/pug/layout
+
+block title
+    | Symbios
+
+block content
+    +section-tabs({
+        tabs: [
+            { active: true, title: 'Купить' },
+            { title: 'Продать' }
+        ]
+    })
+        +trade-form
+    +promo-section

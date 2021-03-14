@@ -1,0 +1,10 @@
+mixin input(props)
+    .input&attributes(attributes)
+        .input__wrapper
+            input(
+                type= props.type || 'text'
+                name= props.name || false
+                placeholder= props.placeholder || ''
+                value= props.value || false
+            )
+        .input__error
